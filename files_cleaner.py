@@ -1,12 +1,12 @@
 import os
 import re
 import shutil
-import send2trash
 
 MOVED_DIR = 'D:\\Users\\gaok\\.gradle\\move'  # 移动后的路径
 TARGET_DIR = 'D:\\Users\\gaok\\.gradle\\daemon'  # 待处理的路径
 DELETED_FILES_NAME = 'D:\\Users\\gaok\\.gradle\\deleteFiles.txt'  # 被删除文件的名字
 DELETE_PATTERN = re.compile('daemon-\w*\.out')  # 待删除文件名的格式
+COUNT = 0
 
 
 # 对目标文件进行处理
@@ -22,9 +22,14 @@ def do_operation(target_file_path):
 
 
 def rename_file(target_file_path):
+    global COUNT
     if os.path.isfile(target_file_path):
         extension = os.path.splitext(target_file_path)[1]  # 扩展名
-        new_name = os.path.dirname(target_file_path) + '/rename' + extension  # 重命名为rename
+        ''' e.g. /E/dd/cc/test.txt 
+            dirname = /E/dd/cc  
+            basename = test.txt'''
+        new_name = (os.path.dirname(target_file_path) + '/rename_ %s' + extension) % (COUNT)  # 重命名为rename
+        COUNT += 1
         try:
             shutil.move(target_file_path, new_name)
         except IOError:  # 对于被别的程序占用的文件，直接操作会报错
