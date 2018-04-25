@@ -1,0 +1,1 @@
+@py.exe E:\github_demo\Easy-Work-Script\open_url.py %*
