@@ -11,3 +11,6 @@
  - 把脚本所在路径添加到系统环境变量
  - 修改open.bat中的脚本路径
  - win + R --> open [url_key] 打开目标url，例如：open zz 打开正则学习网页
+ 
+## download_comic.py
+免翻页自动下载网络图片
