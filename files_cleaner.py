@@ -6,7 +6,7 @@
 @author: gaok 
 @contact: 542385331@qq.com 
 @site: https://blog.csdn.net/qq_27258799 
-@file: test.py 
+@file: files_cleaner.py 
 @time: 2018/4/25 11:34 
 """ 
 
